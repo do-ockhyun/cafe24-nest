@@ -15,3 +15,21 @@
         - 편집된  `package.json`
             - 용량 관리를 위해 `dependencies` 위주로 기재 (dev* 삭제)
 ---
+### 개발
+- config 분리 : 프로젝트 루트경로에 NODE_ENV 접두사 .env 파일에 정보 기재 
+  - 개발 - `.dev.env`
+  - 배포 - `.prod.env`
+```
+# DB config
+DB_HOST={127.0.0.1}
+DB_USERNAME={username}
+DB_PASSWORD={password}
+DB_DATABASE={database}
+``` 
+---
+### 배포
+- 서버에 배포 전에 `npm run format && npm run build` 하고
+- 빌드 결과물인 `dist` 폴더를 `배포`폴더로 Copy & Paste
+- `package.json`의 `dependencies` 변경사항도 Update
+- `git push origin master`로 업로드
+- 중지 > 실행 수동으로 재기동
