@@ -1,6 +1,32 @@
 # 500원짜리 Backend 서버 구축 
 
-### 프로젝트 생성 및 폴더구조
+### 사전 준비
+- [cafe24 node.js 호스팅 신청](https://hosting.cafe24.com/?controller=new_product_page&page=language&tabID=tabCont1_2)
+- 앱 생성
+- ssh 키 등록 및 Key 할당
+- DB 접속 정보 확인
+
+
+### 프로젝트 생성 및 배포
+1. Use this template > Create a new repository
+2. Repository name 에 원하는 이름 으로 생성
+3. Git Clone 하여 로컬에 셋팅
+4. `npm install` > `npm run pre-deploy`하면 `deploy`폴더(배포용) 생성
+5. `cd deploy` 폴더로 이동
+6. `.prod.env`에 DB정보 업데이트
+7. Git 초기화 및 Cafe24에 배포 (git push)
+```
+git init
+git branch -m main master
+git add .
+git commit -m 'init'
+git remote add cafe24 {저장소}
+git push cafe24 master
+```
+8. 앱 중지 > 실행 후 로그로 기동 확인
+
+---
+### 프로젝트 구조
 
 - `npx @nestjs/cli@9.5.0 new {프로젝트}`
 - cafe24 nodejs 호스팅은 node14
