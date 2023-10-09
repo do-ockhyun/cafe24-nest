@@ -4,8 +4,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 
-console.log(`${__dirname}/../.${process.env.NODE_ENV || 'prod'}.env`);
-
 @Module({
   imports: [
     ConfigModule.forRoot({
