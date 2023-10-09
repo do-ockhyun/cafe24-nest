@@ -8,12 +8,13 @@
 - `개발` 폴더와 `배포` 폴더 를 분리하여 형상관리
     - `개발` 폴더는 GITHUB와 같은 곳에 형상관리
     - `배포` 폴더는 cafe24 저장소에 (push 전용) 형상관리
-        - ssh 으로 인증
-        - master 브랜치
-        - `web.js`  엔트리 파일
-            - `require('./dist/main');`
-        - 편집된  `package.json`
-            - 용량 관리를 위해 `dependencies` 위주로 기재 (dev* 삭제)
+      - 프로젝트 폴더에 `deploy`라는 폴더로 구성
+      - `web.js`는 엔트리 파일
+          - `require('./dist/main');`
+      - 편집된 `package.json` 
+          - 용량 관리를 위해 `dependencies` 위주로 기재 (dev* 삭제)
+      - ssh 으로 인증
+      - master 브랜치 
 ---
 ### 개발
 - config 분리 : 프로젝트 루트경로에 NODE_ENV 접두사 .env 파일에 정보 기재 
@@ -28,8 +29,7 @@ DB_DATABASE={database}
 ``` 
 ---
 ### 배포
-- 서버에 배포 전에 `npm run format && npm run build` 하고
-- 빌드 결과물인 `dist` 폴더를 `배포`폴더로 Copy & Paste
+- `npm run pre-deploy` 스크립트로 `dist` 복사
 - `package.json`의 `dependencies` 변경사항도 Update
 - `git push origin master`로 업로드
 - 중지 > 실행 수동으로 재기동
